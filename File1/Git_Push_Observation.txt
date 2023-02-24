@@ -1,0 +1,35 @@
+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
+In lib folder one jar we need to replace jsch-0.1.55
+
+
+
+GitPush:
+TokenBased_Observation: 
+* when i give empty repo foldername it is created under the branch name and repo foldername generated what i give in cat option.--expected
+* In detail log not showing the no of count what file updated.and overview log only showing the count--expected
+* when i tried with fresh load only new test files data will be updated but log file showing as all data updated same as detailed log also*********** expected
+* when i give branch name as empty one branch is created in git repository(master),, but master is created only one time next time file does
+  not uploaded--observation***************
+* Some Cat option is not showing in log file***************************  expected
+* branch name should be same in both side repositoty and cat option ?---????----expected
+* when i give comment as empty and another name connector  working as expected.--expected
+* when i give same name file and diffrent data in directory diffrent data will updated.---expected
+
+*
+SSH Based:
+* when i give empty repo foldername it is created under the branch name and repo foldername generated what i give in cat option
+* In detail log not showing the no of count what file updated.and overview log only showing the count
+* when i tried with fresh load only new test files data will be updated but log file showing as all data updated same as detailed log also
+* when i give branch name as empty one branch is created in git repository(master),, but master is created only one time next time file does
+  not uploaded--observation..
+* Some Cat option is not showing in log file
+* when i tried incremental reload 100Mb txt file not uploaded
+* branch name should be same in both side repositoty and cat option ?---????
+* when i give comment as empty and another name connector  working as expected.
+*when i give same name file and diffrent data in directory diffrent data will updated.
+
+*schedular log file***********************
+
+Github_Push_v2.3_Observation_Token Based and SSH Based:
+* In Cat option  I tried with Empty Branch name by default in git repository one Master branch name is created but in under the master only one time data is loaded.
+  
