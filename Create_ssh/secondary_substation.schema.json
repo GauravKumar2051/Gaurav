@@ -1,0 +1,4061 @@
+
+{Hello world
+  "_id": "schema/secondary_substation",
+  "_key": "secondary_substation",
+  "asset_type": "secondary_substation",
+  "$schema": "https://json-schema.org/draft/2019-09/schema#",
+  "title": "Ortsnetzstation",
+  "description": "Eine Ortsnetzstation (auch: ONS, Trafostation) ist die Schnittstelle zwischen Mittelspannungs- und Niederspannungsnetz. In seltenen Fällen dient sie als reine Schaltstation im Mittelspannungsnetz.",
+  "type": "object",
+  "properties": {
+    "geometry": {
+      "title": "Geographische Lage",
+      "description":"Geographische Lage, hier immer ein Punkt.",
+      "type": "object",
+      "properties": {
+          "coordinates": {
+              "title": "Koordinaten",
+              "description": "Koordinaten in WGS84",
+              "type": "array",
+              "items": {
+                  "type": "number",
+                  "minimum": 4.09,
+                  "maximum": 55.9
+              }
+          },
+          "type": {
+              "title": "Typ",
+              "description": "Punkt",
+              "type": "string",
+              "enum": ["Point"]
+          }
+      },
+      "required": [
+        "coordinates",
+        "type"
+      ]
+    },
+    "id_sappm": {
+      "title": "SAP-PM Id",
+      "description":"ID aus dem SAP-PM-System. Technischer Platz der Station.",
+      "type": "string",
+      "searchable": true
+    },
+    "asset_type": {
+      "title": "Assettyp",
+      "description":"Assettyp, hier bei ONS ist der Assettyp immer secondary_substation",
+      "type": "string"
+    },
+    "name": {
+      "title": "Name",
+      "description":"Name der Station.",
+      "type": "string"
+    },
+    "id_gis": {
+      "title": "GIS Id",
+      "description":"ID aus dem GIS (MSLINK).",
+      "type": [
+              "null",
+              "string"
+            ],
+      "searchable": true
+    },
+    "manufacturer": {
+      "title": "Hersteller",
+      "description":"Hersteller, z.B. Driescher",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "construction_year": {
+      "title": "Baujahr",
+      "description":"Baujahr, z.B. 2020",
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "address": {
+      "title": "Adresse",
+      "description": "Adresse",
+      "type": "object",
+      "properties": {
+        "locality": {
+          "title": "Ort",
+          "description": "Ort",
+          "type": [
+              "null",
+              "string"
+            ]
+        },
+        "sublocality": {
+          "title": "Ortsteil",
+          "description": "Ortsteil",
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "postal_code": {
+          "title": "PLZ",
+          "description": "Postleitzahl",
+          "type": [
+              "null",
+              "string"
+            ]
+        },
+        "street_name": {
+          "title": "Straße",
+          "description": "Straßenname",
+          "type": [
+              "null",
+              "string"
+            ]
+        },
+        "street_number": {
+          "title": "Hausnummer",
+          "description": "Hausnummer",
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+      },
+      "required": [
+        "locality",
+        "postal_code",
+        "street_name",
+        "street_number",
+        "sublocality"
+      ]
+    },
+    "construction_type": {
+      "title": "Bauart",
+      "description":"Bauart, z.B. Kompaktstation (Standard), Gebäude",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "rated_short_time_current": {
+      "title": "Bemessungskurzzeitstrom",
+      "description":"Bemessungskurzzeitstrom, in A",
+      "type": [
+        "number",
+        "null"
+    ]
+    },
+    "rated_voltage": {
+      "title": "Bemessungsspannung",
+      "description":"Bemessungsspannung für die Mittelspannung, in kV",
+      "type": [
+        "string",
+        "null"
+    ]
+    },
+    "operating_voltage": {
+      "title": "Betriebsspannung",
+      "description":"Betriebsspannung für die Mittelspannung, in kV",
+      "type": [
+        "string",
+        "null"
+        ]
+    },
+    "service_provider_name": {
+      "title": "Betreiber",
+      "description":"Der Name des Betreibers des Assets. Kann z.B. ein Stadtwerk sein.",
+      "type": [
+          "null",
+          "string"
+      ]
+    },
+    "owner_name": {
+      "title": "Eigentümer",
+      "description":"Der Name des Eigentümers des Assets. Kann z.B. ein Stadtwerk sein.",
+      "type": [
+          "null",
+          "string"
+      ]
+    },
+    "remote_transmission_method": {
+      "title": "Fernübertragungsart",
+      "description":"Fernübertragungsart, z.B. Kabel (Kupfer), fremd.",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "function": {
+      "title": "Funktion",
+      "description":"Funktion, z.B. Ortsnetzstation, Letztverbr.-/ Kundenstation",
+      "type": [
+          "null",
+          "string"
+        ]
+    },
+    "manufacturer_serial_number": {
+      "title": " Herstellerseriennummer",
+      "description":"Seriennummer des Herstellers",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "downstream_grid_capacity": {
+      "title": "Kabelkapazität nachgelagertes Netz",
+      "description":"Kabelkapazität des nachgelagerten Netzes",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "user_name": {
+      "title": "Benutzer",
+      "description":"Der Name des Benutzers des Assets. Kann z.B. ein Stadtwerk sein.",
+      "type": [
+          "null",
+          "string"
+      ]
+    },
+    "manufacturer_type": {
+      "title": "Typbezeichnung",
+      "description":"Typbezeichnung der Station laut Hersteller, z.B. KSP 1130",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "contract_type": {
+      "title": "Vertragsart",
+      "description":"Vertragsart, z.B. Betriebsführungsvertrag, Wartungsvertrag",
+      "type": [
+        "null",
+        "string"
+      ]
+    },
+    "transformer": {
+      "title": "Transformator",
+      "description":"Transformator",
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id_sappm": {
+                "title": "SAP PM Id",
+                "description":"ID aus dem SAP PM-System. Equipment Id des Transformators.",
+                "type": "string",
+                "searchable": true
+              },
+              "status": {
+                "title": "Status",
+                "description":"Status.",
+                "type": "string"
+              },
+              "switch_field_sappm_id": {
+                "title": "Schaltfeld",
+                "description":"SAP PM Id des Schaltfeldes, das mit dem Trafo verbunden ist.",
+                "type": "string"
+              },
+              "connector_type_upper_voltage": {
+                "title": "Oberspannung",
+                "description":"Obere Spannung (in kV).",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "connector_type_lower_voltage": {
+                "title": "Unterspannung",
+                "description":"Untere Spannung (in kV).",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "installation": {
+                "title": "Installation",
+                "description":"Ausführung der Installation (H_AUSFUEHRUNG_STONT).",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "tap": {
+                "title": "Transformer-Anzapfbereich",
+                "description":"Anzapfbereich des Transformer, im SAP-PM (H_ANZAPFBEREICH_TRAFO)",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "construction_type": {
+                "title": "Ausführung",
+                "description":"Ausführung der Station, SAP-PM (H_AUSFUEHRUNG_STONT) ",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "construction_year": {
+                "title": "Baujahr",
+                "description":"Baujahr, z.B. 2020",
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "rated_power": {
+                "title": "Bemessungsleistung",
+                "description":"Bemessungsleistung, SAP-PM (H_BEMESSUNGSLEISTUNG_1)",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "mv_voltage": {
+                "title": "Betriebsspannung MS ",
+                "description":" Betriebsspannung der Mittelspannung (MS), SAP-PM (H_BETRIEBSSPANNUNG_MS)",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "service_provider_name": {
+                "title": "Betreiber",
+                "description":"Der Name des Betreibers des Assets. Kann z.B. ein Stadtwerk sein.",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "owner_name": {
+                "title": "Eigentümer",
+                "description":"Der Name des Eigentümers des Assets. Kann z.B. ein Stadtwerk sein.",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "weight_total": {
+                "title": "Gesamtgewicht",
+                "description":"Gesamtgewicht des Transformers, SAP-PM (H_GESAMTGEWICHT).",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "weight_oil": {
+                "title": "Gewicht Öl",
+                "description":"Gewicht vom Öl, SAP-PM (H_GEWICHT_OEL)",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "manufacturer": {
+                "title": "Hersteller",
+                "description":"Hersteller des Trafos, SAP-PM (H_HERSTELLER_TRAFO).",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "manufacturer_serial_number": {
+                "title": "Herstellerseriennummer",
+                "description":"Seriennummer des Herstellers, SAP-PM (H_HERST_SRIAL_NR).",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "insulation_medium": {
+                "title": "Isoliermedium",
+                "description":"Isoliermedium / Art der Kühlung, SAP-PM (H_ISOLIERMEDIUM_TRAFO)",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "coolant": {
+                "title": "Kühlmittelfabrikant",
+                "description":"Kühlmittelfabrikant, SAP-PM (H_KUEHLMITTELFABRIKAT)",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "short_circuit_voltage_uk": {
+                "title": "Kurzschlussspannung UK",
+                "description":"Kurzschlussspannung UK in Prozent (%), SAP-PM (H_KURZSCHLUSSSPANNUNG_UK)",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "short_circuit_voltage_ur": {
+                "title": "Kurzschlussspannung UR",
+                "description":"Kurzschlussspannung UK in Prozent (%), SAP-PM (H_KURZSCHLUSSSPANNUNG_UR)",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "short_circuit_voltage_ux": {
+                "title": "Kurzschlussspannung UX",
+                "description":"Kurzschlussspannung UX in Prozent (%), SAP-PM (H_KURZSCHLUSSSPANNUNG_UX) ",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "short_circuit_losses": {
+                "title": "Kurzschlussverluste",
+                "description":"Kurzschlussverluste in Kilowatt (kW)(H_KURZSCHLUSSVERLUSTE)",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "idle_losses": {
+                "title": "Leerlaufverluste",
+                "description":"Leerlaufverluste in Kilowatt (kW), SAP-PM (H_LEERLAUFVERLUSTE)",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "rated_voltage_ov1": {
+                "title": "Nennspannung OS1",
+                "description":"Nennspannung auf der Oberspannungsseite 1 (OS1), SAP-PM (H_NENNSPANNUNG_OS1)",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "rated_voltage_ov2": {
+                "title": "Nennspannung OS2",
+                "description":"Nennspannung auf der Oberspannungsseite 2 (OS2), SAP-PM (H_NENNSPANNUNG_OS2)",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "rated_voltage_uv": {
+                "title": "Nennspannung US",
+                "description":"Nennspannung auf der Unterspannungsseite  (US), SAP-PM (H_NENNSPANNUNG_US)",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "rated_current_uv1": {
+                "title": "Nennstrom US1",
+                "description":"Nennstrom auf der Unterspannungsseite  (US1), SAP-PM (H_NENNSTROM_US1)",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "user_name": {
+                "title": "Benutzer",
+                "description":"Der Name des Benutzers des Assets. Kann z.B. ein Stadtwerk sein.",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "vector_group": {
+                "title": "Schaltgruppe ",
+                "description":"Schaltgruppe, SAP-PM (H_SCHALTGRUPPE)",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "protection_class": {
+                "title": "Schutzart ",
+                "description":"Schutzart des Transformer z.B. Druckentlastungsventil, SAP-PM (H_SCHUTZART_TRAFO)",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              }
+            },
+            "required": [
+              "connector_type_upper_voltage",
+              "connector_type_lower_voltage",
+              "construction_type",
+              "construction_year",
+              "coolant",
+              "insulation_medium",
+              "id_sappm",
+              "idle_losses",
+              "installation",
+              "manufacturer",
+              "manufacturer_serial_number",
+              "mv_voltage",
+              "name",
+              "owner_name",
+              "protection_class",
+              "rated_current_uv1",
+              "rated_power",
+              "rated_voltage_ov1",
+              "rated_voltage_ov2",
+              "rated_voltage_uv",
+              "switch_field_sappm_id",
+              "service_provider_name",
+              "short_circuit_losses",
+              "short_circuit_voltage_uk",
+              "short_circuit_voltage_ur",
+              "short_circuit_voltage_ux",
+              "status",
+              "tap",
+              "user_name",
+              "vector_group",
+              "weight_oil",
+              "weight_total"
+            ],
+            "groupOrder": [
+               {
+                "groupName": "IDs",
+                 "order": [
+                   "name",
+                   "id_sappm",
+                   "switch_field_sappm_id"
+                 ]
+               },
+              {
+                "groupName": "Elektrische Eigenschaften",
+                "order": [
+                  "mv_voltage",
+                  "rated_current_uv1",
+                  "rated_power",
+                  "rated_voltage_ov1",
+                  "rated_voltage_ov2",
+                  "rated_voltage_uv",
+                  "short_circuit_losses",
+                  "short_circuit_voltage_uk",
+                  "short_circuit_voltage_ur",
+                  "short_circuit_voltage_ux",
+                  "idle_losses"
+                ]
+              },
+              {
+                "groupName": "Weitere Eigenschaften",
+                "order": [
+                  "manufacturer",
+                  "manufacturer_serial_number",
+                  "installation",
+                  "coolant",
+                  "insulation_medium",
+                  "protection_class",
+                  "vector_group",
+                  "construction_type",
+                  "construction_year"
+                ]
+              },
+              {
+                "groupName": "Nutzung",
+                "order": [
+                  "owner_name",
+                  "service_provider_name",
+                  "user_name",
+                  "function",
+                  "contract_type"
+                  ]
+                }
+            ]
+          }
+        }
+      ]
+    },
+    "plc_headend": {
+      "title": "PLC Kopfstation",
+      "description":"PLC Kopfstation, SAP-PM (PLC_HEADEND)",
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "status": {
+                "title": "Status",
+                "description":"Status",
+                "type": "string"
+              },
+              "name": {
+                "title": "Name",
+                "description":"Name",
+                "type": "string"
+              },
+              "id_sappm": {
+                "title": "SAP Equipment ID",
+                "description":"SAP Equipment ID",
+                "type": "string",
+                "searchable": true
+              },
+              "equipment_type": {
+                "title": "Equipmenttype",
+                "description":"Name des Equipmenttypes",
+                "type": "integer"
+              },
+              "commissioning_date": {
+                "title": "Inbetriebnahmedatum",
+                "description":"Inbetriebnahmedatum",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "construction_month": {
+                "title": "Baumonat ",
+                "description":"Baumonat, z. B. 7 für Juli ",
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "construction_year": {
+                "title": "Baujahr ",
+                "description":"Baujahr, z. B. 2019",
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "costcenter": {
+                "title": "Kostenstelle",
+                "description":"Kostenstelle",
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "sap_tp_id": {
+                "title": "überliegender technischer Platz",
+                "description": "überliegender technischer Platz",
+                "type": "string"
+              },
+              "plc_mac_address": {
+                "title": "PLC MAC Adresse",
+                "description":"MAC Adresse des PLC-Geräts",
+                "type": [
+                   "null",
+                   "string"
+                ]
+              },
+              "manufacturer_serial_number": {
+                "title": "Herstellerseriennummer",
+                "description":"Seriennummer des Herstellers",
+                "type": [
+                   "null",
+                   "string"
+                ]
+              },
+              "manufacturer": {
+                "title": "Hersteller",
+                "description":"Hersteller der PLC Kopfstation",
+                "type": [
+                   "null",
+                   "string"
+                ]
+              },
+              "device_access_key": {
+                "title": "Geräteschlüssel",
+                "description":"Geräteschlüssel der PLC Kopfstation",
+                "type": [
+                   "null",
+                   "string"
+                ]
+              },
+              "type": {
+                "title": "Gerätetyp",
+                "description":"PLC Gerätetyp",
+                "type": [
+                   "null",
+                   "string"
+                ]
+              }
+            },
+            "required": [
+              "commissioning_date",
+              "construction_month",
+              "construction_year",
+              "costcenter",
+              "device_access_key",
+              "equipment_type",
+              "id_sappm",
+              "manufacturer",
+              "manufacturer_serial_number",
+              "name",
+              "plc_mac_address",
+              "sap_tp_id",
+              "status",
+              "type"
+            ]
+          }
+        }
+      ]
+    },
+    "switch_panels": {
+      "title": "MS-Schaltanlage",
+      "description":"Die Mittelspannungsschaltanlage dient zum Schalten verschiedenen untergeordneter Equipments z.B. Lasttrennschalter und kann mehrmals in einer ONS verbaut sein.",
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id_sappm": {
+                "title": "SAP PM Id",
+                "description":"ID aus dem SAP PM-System. Technischer Platz der MS-Schaltanlage.",
+                "type": "string",
+                "searchable": true
+              },
+              "name": {
+                "title": "Name",
+                "description":"Name, Bezeichnung der Anlage",
+                "type": "string"
+              },
+              "number_switch_panels": {
+                "title": "Sammelschienenanzahl ",
+                "description":"Anzahl der Sammelschienen innerhalb der Anlage (H_ANZAHL_SAMMELSCHIENEN).",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "design": {
+                "title": "Design",
+                "description":"Design, Ausführung der Sammelschiene (H_AUSFUEHRUNG_MSSA).",
+                "type": [
+                    "null",
+                    "string"
+                  ]
+              },
+              "construction_year": {
+                "title": "Baujahr",
+                "description":"Baujahr, z.B. 2020",
+                "type": [
+                  "null",
+                  "integer"
+                ]
+              },
+              "construction_kind": {
+                "title": "Bauweise ",
+                "description":"Bauweise der Sammelschiene (H_BAUWEISE_MSSSS)",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "rated_short_circuit_duration": {
+                "title": "Bemessungskurzschlussdauer ",
+                "description":"Bemessungskurzschlussdauer, (H_BEMESSUNGSKURZSCHLUSSDAUER)",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "rated_short_circuit_make_current": {
+                "title": "Bemessungskurzzeitstrom ",
+                "description":"Bemessungskurzzeitstrom, (H_BEMESSUNGSKURZZEITSTROM).",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "rated_short_time_dynamic_current": {
+                "title": "Dynamischer Bemessungskurzzeitstrom",
+                "description":"Dynamischer Bemessungskurzzeitstrom, (H_BEMESSUNGSKURZZEITSTROM_IDYN)",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "rated_short_time_thermal_current": {
+                "title": "Thermischer Bemessungskurzzeitstrom",
+                "description":"Thermischer Bemessungskurzzeitstrom, (H_BEMESSUNGSKURZZEITSTROM_ITH)",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "mv_voltage": {
+                "title": "MS Bemessungsspannung",
+                "description":"MS Bemessungsspannung, (H_BEMESSUNGSSPANNUNG_MS)",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "rated_normal_current": {
+                "title": "Bemessungsstrom",
+                "description":"Bemessungsstrom, (H_BEMESSUNGSSTROM)",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "mv_operating_voltage": {
+                "title": "Betriebsspannung",
+                "description":"Betriebsspannung, (H_BETRIEBSSPANNUNG_MS)",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "service_provider_name": {
+                "title": "Betreiber",
+                "description":"Der Name des Betreibers des Assets. Kann z.B. ein Stadtwerk sein.",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "manufacturer": {
+                "title": "Hersteller",
+                "description":"Name des Herstellers, (H_EHA_HERSTELLER_MSSA)",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "manufacturer_serial_number": {
+                "title": "Herstellerseriennummer",
+                "description":"Seriennummer des Herstellers",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "configuration": {
+                "title": "Konfiguration",
+                "description":"Konfiguration, (H_KONFIGURATION)",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "short_circuit_current_grid": {
+                "title": "Netzkurzschlussstrom ",
+                "description":"Netzkurzschlussstrom, (H_KURZSCHLUSSSTROM_NETZ).",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "material": {
+                "title": "Material",
+                "description":"Material, (H_MATERIAL_MSSSS)",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "user_name": {
+                "title": "Benutzer",
+                "description":"Der Name des Benutzers des Assets. Kann z.B. ein Stadtwerk sein.",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "cross_section": {
+                "title": "Querschnitt",
+                "description":"Querschnitt der Schaltanlage, (H_QUERSCHNITT_MSSSS)",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "neutral_point_treatment": {
+                "title": "Sternpunktbehandlung ",
+                "description":"Sternpunktbehandlung, (H_STERNPUNKTBEHANDLUNG)",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "interfering_arc_absorber": {
+                "title": "Störlichtbogenabsorber",
+                "description":"Störlichtbogenabsorber, (H_STOERLICHTBOGENABSORBER)",
+                "type": [
+                  "null",
+                  "string"
+                ]
+              },
+              "switch_fields": {
+                "title": "MS-Schaltfeld",
+                "description":"Das MS-Schaltfeld ist Teil einer Schaltanalge. Ihr sind weitere Equipments z. B. Leistungsschalter untergeordnet.",
+                "anyOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id_sappm": {
+                          "title": "SAP PM Id",
+                          "description":"ID aus dem SAP PM-System. Technischer Platz des MS-Schaltfeld.",
+                          "type": "string",
+                          "searchable": true
+                        },
+                        "name": {
+                          "title": "Name",
+                          "description":"Name, Bezeichnung der des Schaltfeldes",
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "costcenter": {
+                          "title": "Kostenstelle",
+                          "description":"Kostenstelle",
+                          "type": [
+                            "null",
+                            "integer"
+                          ]
+                        },
+                        "status": {
+                          "title": "Status",
+                          "description":"Status",
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "construction_type": {
+                          "title": "Bauart",
+                          "description":"Bauart des Schaltfeldes, (H_BAUART_MSSF)",
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "construction_year": {
+                          "title": "Baujahr",
+                          "description":"Baujahr, z.B. 2020",
+                          "type": [
+                            "null",
+                            "integer"
+                          ]
+                        },
+                        "rated_short_circuit_duration": {
+                          "title": "Bemessungskurzschlussdauer ",
+                          "description":"Bemessungskurzschlussdauer, (H_BEMESSUNGSKURZSCHLUSSDAUER)",
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "rated_short_time_dynamic_current": {
+                          "title": "Dynamischer Bemessungskurzzeitstrom",
+                          "description":"Dynamischer Bemessungskurzzeitstrom, (H_BEMESSUNGSKURZZEITSTROM_IDYN)",
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "rated_short_time_thermal_current": {
+                          "title": "Thermischer Bemessungskurzzeitstrom",
+                          "description":"Thermischer Bemessungskurzzeitstrom, (H_BEMESSUNGSKURZZEITSTROM_ITH)",
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "mv_voltage": {
+                          "title": "MS Bemessungsspannung",
+                          "description":"MS Bemessungsspannung, (H_BEMESSUNGSSPANNUNG_MS)",
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "rated_normal_current": {
+                          "title": "Bemessungsstrom",
+                          "description":"Bemessungsstrom, (H_BEMESSUNGSSTROM)",
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "mv_operating_voltage": {
+                          "title": "Betriebsspannung",
+                          "description":"Betriebsspannung, (H_BETRIEBSSPANNUNG_MS)",
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "service_provider_name": {
+                          "title": "Betreiber",
+                          "description":"Der Name des Betreibers des Assets. Kann z.B. ein Stadtwerk sein.",
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "manufacturer": {
+                          "title": "Hersteller",
+                          "description":"Hersteller des Schaltfeldes, (H_EHA_HERSTELLER_MSSA)",
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "owner_name": {
+                          "title": "Eigentümer",
+                          "description":"Der Name des Eigentümers des Assets. Kann z.B. ein Stadtwerk sein.",
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "usage_kind": {
+                          "title": "Schaltfeldart ",
+                          "description":"Art des Schaltfeldes, (H_FELDART)",
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "field_label": {
+                          "title": "Schaltfeldkennzeichen",
+                          "description":"Schaltfeldkennzeichen, (H_FELDKENNZEICHEN)",
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "manufacturer_serial_number": {
+                          "title": "Herstellerseriennummer",
+                          "description":"Seriennummer des Herstellers",
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "manufacturer_fuse": {
+                          "title": "Sicherungshersteller",
+                          "description":"Sicherungshersteller, (H_HH_SICHERUNGSHERSTELLER)",
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "fuse_type": {
+                          "title": "Sicherungstyp ",
+                          "description":"Sicherungstyp, (H_HH_SICHERUNGSTYP)",
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "rated_current_fuse_links": {
+                          "title": "H_HH_SICHERUNG_BEMESSUNGSSTROM",
+                          "description":"H_HH_SICHERUNG_BEMESSUNGSSTROM, (H_HH_SICHERUNG_BEMESSUNGSSTROM)",
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "insulation_kind": {
+                          "title": "Isolationsart",
+                          "description":"Isolationsart, (H_ISOLATIONSART)",
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "meter": {
+                          "title": "Messung",
+                          "description":"Messung, (H_MESSUNG)",
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "user_name": {
+                          "title": "Benutzer",
+                          "description":"Der Name des Benutzers des Assets. Kann z.B. ein Stadtwerk sein.",
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "field_number": {
+                          "title": "Schaltfeldnummer",
+                          "description":"Schaltfeldnummer, (H_SCHALTFELD_NUMMER)",
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "rated_short-time_current": {
+                          "title": "Thermischer Bemessungskurzzeitstrom",
+                          "description":"Thermischer Bemessungskurzzeitstrom, (H_THERM_BEM_KURZZEITSTROM)",
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "type": {
+                          "title": "Typbezeichnung",
+                          "description":"Typbezeichnung, (H_TYPBEZEICHNUNG_MSSA).",
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "contract_type": {
+                          "title": "Vertragsart",
+                          "description":"Vertragsart, (H_VERTRAGSART)",
+                          "type": [
+                            "null",
+                            "string"
+                          ]
+                        },
+                        "switch_disconnector": {
+                          "title": "MS-Last-/Trennschalter",
+                          "description":"MS-Last-/Trennschalter",
+                          "anyOf": [
+                            {
+                              "type": "null"
+                            },
+                            {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "id_sappm": {
+                                    "title": "SAP-PM Id",
+                                    "description":"ID aus dem SAP-PM-System, hier die Equipmentnummer.",
+                                    "type": "string",
+                                    "searchable": true
+                                  },
+                                  "name": {
+                                    "title": "Bezeichnung",
+                                    "description":"Bezeichnung des MS-Last-/Trennschalters.",
+                                    "type": "string"
+                                  },
+                                  "manfacture": {
+                                    "title": "Hersteller",
+                                    "description":"Hersteller des MS-Last-/Trennschalters.",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "weight_total": {
+                                    "title": "Gesamtgewicht",
+                                    "description":"Gesamtgewicht des Betriebmittels.",
+                                     "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                  },
+                                  "weight_unit": {
+                                    "title": "Betriebmittelgewicht",
+                                    "description":"Gewicht der Betriebmitteleinheit.",
+                                    "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                  },
+                                  "manufacturer_serial_number": {
+                                    "title": "Herstellerseriennummer",
+                                    "description":"Seriennummer des Herstellers",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "manufacturer_model": {
+                                    "title": "Modell ",
+                                    "description":"Modell des Herstellers",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "construction_month": {
+                                    "title": "Baumonat ",
+                                    "description":"Baumonat, z. B. 7 für Juli ",
+                                    "type": [
+                                      "null",
+                                      "integer"
+                                    ]
+                                  },
+                                  "start_from": {
+                                    "title": "tbd",
+                                    "description":"tbd",
+                                    "type": "string"
+                                  },
+                                  "manufacturer_part_number": {
+                                    "title": "Herstellernummer",
+                                    "description":"Herstellernummer, Hersteller ID des Bauteils.",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "costcenter": {
+                                    "title": "Kostenstelle",
+                                    "description":"Kostenstelle",
+                                    "type": [
+                                      "null",
+                                      "integer"
+                                    ]
+                                  },
+                                  "system_status": {
+                                    "title": "Systemstatus",
+                                    "description":"Systemstatus, (text_system)",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "status": {
+                                    "title": "Status",
+                                    "description":"Status, (text_user)",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "location_name": {
+                                    "title": "Standortname",
+                                    "description":"Standortname, (name1)",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "drive_kind_earthing_switch": {
+                                    "title": "Antriebsart des Erdungstrenners",
+                                    "description":"Antriebsart des Erdungstrenners, (H_ANTRIEBSART_ERDUNGSTRENNER)",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "drive_kind_switch_disconnector": {
+                                    "title": "Antriebsart des Trennschalters",
+                                    "description":"Antriebsart des Trennschalters, (H_ANTRIEBSART_MSLSR)",
+                                    "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                  },
+                                  "drive_kind": {
+                                    "title": "Antriebsart",
+                                    "description":"Antriebsart, (H_ANTRIEBSART)",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "drive_voltage": {
+                                    "title": "Antriebsspannung",
+                                    "description":"Antriebsspannung, (H_ANTRIEBSSPANNUNG)",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "open_circuit_shunt_release": {
+                                    "title": "Arbeitsstromauslöser",
+                                    "description":"Arbeitsstromauslöser, (H_ARBEITSSTROMAUSLOESER).",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "release_voltage": {
+                                    "title": "Auslösespulenspannung 1",
+                                    "description":"Auslösespulenspannung 1 , (H_AUSLOESESPULENSPANNUNG_1)",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "construction_year": {
+                                    "title": "Baujahr",
+                                    "description":"Baujahr, z.B. 2020",
+                                    "type": [
+                                      "integer",
+                                      "null"
+                                    ]
+                                  },
+                                  "rated_short_circuit_duration": {
+                                    "title": "Bemessungskurzschlussdauer ",
+                                    "description":"Bemessungskurzschlussdauer, (H_BEMESSUNGSKURZSCHLUSSDAUER)",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "rated_short_time_dynamic_current": {
+                                    "title": "Dynamischer Bemessungskurzzeitstrom",
+                                    "description":"Dynamischer Bemessungskurzzeitstrom, (H_BEMESSUNGSKURZZEITSTROM_IDYN)",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "rated_short_time_thermal_current": {
+                                    "title": "Thermischer Bemessungskurzzeitstrom",
+                                    "description":"Thermischer Bemessungskurzzeitstrom, (H_BEMESSUNGSKURZZEITSTROM_ITH)",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "mv_voltage": {
+                                    "title": "MS Bemessungsspannung",
+                                    "description":"MS Bemessungsspannung, (H_BEMESSUNGSSPANNUNG_MS)",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "rated_normal_current": {
+                                    "title": "Bemessungsstrom",
+                                    "description":"Bemessungsstrom, (H_BEMESSUNGSSTROM)",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "service_provider_name": {
+                                    "title": "Betreiber",
+                                    "description":"Der Name des Betreibers des Assets. Kann z.B. ein Stadtwerk sein.",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "user_name": {
+                                    "title": "Benutzer",
+                                    "description":"Der Name des Benutzers des Assets. Kann z.B. ein Stadtwerk sein.",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "owner_name": {
+                                    "title": "Eigentümer",
+                                    "description":"Der Name des Eigentümers des Assets. Kann z.B. ein Stadtwerk sein.",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "short_circuit_current_grid": {
+                                    "title": "Netzkurzschlussstrom ",
+                                    "description":"Netzkurzschlussstrom, (H_KURZSCHLUSSSTROM_NETZ).",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "usage_kind_switch_disconnector": {
+                                    "title": "Einsatzart des Last-/Trennschalters",
+                                    "description":"Einsatzart des Last-/Trennschalters, (H_EINSATZART_MSLTS)",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "earthing_switch_present": {
+                                    "title": "Erdungstrenner vorhanden?",
+                                    "description":"Abfrage ob ein Erdungstrenner vorhanden ist, (H_ERDUNGSTRENNER_VORHANDEN)",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "insulation_medium": {
+                                    "title": "Isulationsmedium",
+                                    "description":"Isulationsmedium des Schaltgerätes, (H_ISOLIERMEDIUM_SCHALTGERAETE)",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "switch_kind": {
+                                    "title": "Schaltart",
+                                    "description":"Schaltart, (H_SCHALTERART)",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "interlock_earthing_switch": {
+                                    "title": "Erdungstrennerverriegelung",
+                                    "description":"Erdungstrennerverriegelung, (H_VERRIEGELUNG_ERDUNGSTRENNER)",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "fuse_annex": {
+                                    "title": "Sicherungsanbau",
+                                    "description":"Sicherungsanbau, (H_SICHERUNGSANBAU)",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "trip_free_release": {
+                                    "title": "Sicherungsfreiauslösung ",
+                                    "description":"Abfrage ob eine Sicherungsfreiauslösung existiert, (H_SICHERUNGSFREIAUSLOESUNG).",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "fuse_dimensions": {
+                                    "title": "Sicherungslänge",
+                                    "description":"Sicherungslänge, (H_SICHERUNGSLAENGE)",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  }
+                                },
+                                "required": [
+                                  "construction_month",
+                                  "construction_year",
+                                  "costcenter",
+                                  "drive_kind",
+                                  "drive_kind_earthing_switch",
+                                  "drive_kind_switch_disconnector",
+                                  "drive_voltage",
+                                  "earthing_switch_present",
+                                  "fuse_annex",
+                                  "fuse_dimensions",
+                                  "id_sappm",
+                                  "insulation_medium",
+                                  "interlock_earthing_switch",
+                                  "location_name",
+                                  "manfacture",
+                                  "manufacturer_model",
+                                  "manufacturer_part_number",
+                                  "manufacturer_serial_number",
+                                  "mv_voltage",
+                                  "name",
+                                  "open_circuit_shunt_release",
+                                  "owner_name",
+                                  "rated_normal_current",
+                                  "rated_short_circuit_duration",
+                                  "rated_short_time_dynamic_current",
+                                  "rated_short_time_thermal_current",
+                                  "release_voltage",
+                                  "service_provider_name",
+                                  "short_circuit_current_grid",
+                                  "start_from",
+                                  "status",
+                                  "switch_kind",
+                                  "system_status",
+                                  "trip_free_release",
+                                  "usage_kind_switch_disconnector",
+                                  "user_name",
+                                  "weight_total",
+                                  "weight_unit"
+                                ],
+                                "groupOrder": [
+                                  {
+                                    "groupName": "IDs",
+                                    "order": [
+                                      "name",
+                                      "id_sappm"
+                                    ]
+                                  },
+                                  {
+                                    "groupName": "Elektrische Eigenschaften",
+                                    "order": [
+                                      "mv_voltage",
+                                      "release_voltage",
+                                      "rated_normal_current",
+                                      "rated_short_circuit_duration",
+                                      "rated_short_time_dynamic_current",
+                                      "rated_short_time_thermal_current"
+                                    ]
+                                  },
+                                  {
+                                    "groupName": "Schalter Eigenschaften",
+                                    "order": [
+                                      "switch_kind",
+                                      "drive_kind_earthing_switch",
+                                      "drive_kind_switch_disconnector",
+                                      "drive_kind",
+                                      "open_circuit_shunt_release",
+                                      "fuse_annex",
+                                      "trip_free_release",
+                                      "earthing_switch_present",
+                                      "interlock_earthing_switch",
+                                      "fuse_dimensions"
+                                    ]
+                                  },
+                                  {
+                                    "groupName": "Weitere Eigenschaften",
+                                    "order": [
+                                      "manufacturer",
+                                      "manufacturer_serial_number",
+                                      "manufacturer_model",
+                                      "system_status",
+                                      "insulation_medium",
+                                      "construction_type",
+                                      "construction_year"
+                                    ]
+                                  },
+                                  {
+                                    "groupName": "Nutzung",
+                                    "order": [
+                                      "owner_name",
+                                      "service_provider_name",
+                                      "user_name"
+                                    ]
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        },
+                        "surge_arresters": {
+                          "title": "MS-Überspannungsableiter",
+                          "description":"Der MS-Überspannungsableiter ist ein Equipment innerhalb eines Schaltfeldes.",
+                          "anyOf": [
+                            {
+                              "type": "null"
+                            },
+                            {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "status": {
+                                    "title": "Status",
+                                    "description":"Status",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "name": {
+                                    "title": "Name",
+                                    "description":"Name des Equipments",
+                                    "type": "string"
+                                  },
+                                  "id_sappm": {
+                                    "title": "SAP-PM Id",
+                                    "description":"ID aus dem SAP-PM-System, hier die Equipmentnummer.",
+                                    "type": "string",
+                                    "searchable": true
+                                  },
+                                  "equipment_type": {
+                                    "title": "Equipmenttype",
+                                    "description":"Equipmenttype",
+                                    "type": "integer"
+                                  },
+                                  "manufacturer_serial_number": {
+                                    "title": "Herstellerseriennummer",
+                                    "description":"Seriennummer des Herstellers",
+                                    "type": [
+                                      "string",
+                                      "null"
+                                    ]
+                                  },
+                                  "commissioning_date": {
+                                    "title": "Inbetriebnahmedatum",
+                                    "description":"Inbetriebnahmedatum, (INBDT)",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "location_name": {
+                                    "title": "Standortname",
+                                    "description":"Standortname",
+                                    "type": "string"
+                                  },
+                                  "sap_tp_id": {
+                                    "title": "überliegender technischer Platz",
+                                    "description": "überliegender technischer Platz",
+                                    "type": "string"
+                                  },
+                                  "lable": {
+                                    "title": "Bezeichnung",
+                                    "description":"Bezeichnung des Equipments",
+                                    "type": "string"
+                                  },
+                                  "service_provider_name": {
+                                    "title": "Betreiber",
+                                    "description":"Der Name des Betreibers des Assets. Kann z.B. ein Stadtwerk sein.",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "owner_name": {
+                                    "title": "Eigentümer",
+                                    "description":"Der Name des Eigentümers des Assets. Kann z.B. ein Stadtwerk sein.",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "user_name": {
+                                    "title": "Benutzer",
+                                    "description":"Der Name des Benutzers des Assets. Kann z.B. ein Stadtwerk sein.",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "construction_type": {
+                                    "title": "Bauart",
+                                    "description":"Bauart",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "rated_leakage_current": {
+                                    "title": "Bemessungsableitstrom",
+                                    "description":"Bemessungsableitstrom in kA",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "rated_voltage": {
+                                    "title": "Bemessungsspannung",
+                                    "description":"Bemessungsspannung für die Mittelspannung, in kV",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "manufacturer": {
+                                    "title": "Hersteller",
+                                    "description":"Name des Herstellers",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "model_name": {
+                                    "title": "Typbezeichnung",
+                                    "description":"Typbezeichnung",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "construction_year": {
+                                    "title": "Baujahr",
+                                    "description": "Baujahr, z.B. 2020",
+                                    "type": [
+                                      "integer",
+                                      "null"
+                                    ]
+                                  },
+                                  "conductor": {
+                                    "title": "Leiter",
+                                    "description":"Leiter",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "rated_discharge_surge_current": {
+                                    "title": "Nennableitstoßstrom",
+                                    "description":"Nennableitstoßstrom",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "max_continuous_operating_voltage": {
+                                    "title": "Maximale Dauerbetriebsspannung",
+                                    "description":"Maximale Dauerbetriebsspannung",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  }
+                                },
+                                "required": [
+                                  "commissioning_date",
+                                  "conductor",
+                                  "construction_type",
+                                  "construction_year",
+                                  "equipment_type",
+                                  "id_sappm",
+                                  "lable",
+                                  "location_name",
+                                  "manufacturer",
+                                  "manufacturer_serial_number",
+                                  "max_continuous_operating_voltage",
+                                  "model_name",
+                                  "name",
+                                  "owner_name",
+                                  "rated_discharge_surge_current",
+                                  "rated_leakage_current",
+                                  "rated_voltage",
+                                  "sap_tp_id",
+                                  "service_provider_name",
+                                  "status",
+                                  "user_name"
+                                ],
+                                "groupOrder": [
+                                  {
+                                    "groupName": "IDs",
+                                    "order": [
+                                      "name",
+                                      "id_sappm",
+                                      "sap_tp_id"
+                                    ]
+                                  },
+                                  {
+                                    "groupName": "Elektrische Eigenschaften",
+                                    "order": [
+                                      "rated_leakage_current",
+                                      "rated_voltage",
+                                      "conductor",
+                                      "rated_discharge_surge_current"
+                                    ]
+                                  },
+                                  {
+                                    "groupName": "Weitere Eigenschaften",
+                                    "order": [
+                                      "manufacturer",
+                                      "manufacturer_serial_number",
+                                      "model_name",
+                                      "construction_type",
+                                      "construction_year"
+                                    ]
+                                  },
+                                  {
+                                    "groupName": "Nutzung",
+                                    "order": [
+                                      "owner_name",
+                                      "service_provider_name",
+                                      "user_name"
+                                    ]
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        },
+                        "circuit_breaker": {
+                           "title": "MS-Leistungsschalter",
+                            "description":"Der MS-Leistungsschalter ist ein Equipment innerhalb eines Schaltfeldes.",
+                            "anyOf": [
+                              {
+                                "type": "null"
+                              },
+                              {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "status": {
+                                      "title": "Status",
+                                      "description": "Status",
+                                      "type": "string"
+                                    },
+                                    "name": {
+                                      "title": "Name",
+                                      "description": "Name des Equipments",
+                                      "type": "string"
+                                    },
+                                    "id_sappm": {
+                                      "title": "SAP-PM Id",
+                                      "description":"ID aus dem SAP-PM-System, hier die Equipmentnummer.",
+                                      "type": "string",
+                                      "searchable": true
+                                    },
+                                    "equipment_type": {
+                                      "title": "Equipmenttype",
+                                      "description":"Equipmenttype",
+                                      "type": "integer"
+                                    },
+                                    "manufacturer_serial_number": {
+                                      "title": "Herstellerseriennummer",
+                                      "description":"Seriennummer des Herstellers",
+                                      "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                    },
+                                    "commissioning_date": {
+                                      "title": "Inbetriebnahmedatum",
+                                    "description":"Inbetriebnahmedatum",
+                                      "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                    },
+                                    "construction_month": {
+                                      "title": "Baumonat",
+                                      "description":"Baumonat, z. B. 7 für Juli ",
+                                      "type": [
+                                        "integer",
+                                        "null"
+                                      ]
+                                    },
+                                    "construction_year": {
+                                      "title": "Baujahr",
+                                      "description":"Baujahr, z.B. 2020",
+                                      "type": [
+                                        "integer",
+                                        "null"
+                                      ]
+                                    },
+                                    "costcenter": {
+                                      "title": "Kostenstelle",
+                                      "description":"Kostenstelle",
+                                      "type": [
+                                        "integer",
+                                        "null"
+                                      ]
+                                    },
+                                    "sap_tp_id": {
+                                      "title": "überliegender technischer Platz",
+                                      "description": "überliegender technischer Platz",
+                                      "type": "string"
+                                    },
+                                    "drive_voltage": {
+                                      "title": "Antriebsspannung",
+                                      "description":"Antriebsspannung, (H_ANTRIEBSSPANNUNG)",
+                                      "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                    },
+                                    "drive_kind": {
+                                      "title": "Antriebsart",
+                                      "description":"Antriebsart, (H_ANTRIEBSART)",
+                                      "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                    },
+                                    "trip_control_voltage_1": {
+                                      "title": "Auslöse-/ Steuerspannung",
+                                      "description": "Auslöse-/ Steuerspannung (1)",
+                                      "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                    },
+                                    "trip_control_voltage_2": {
+                                      "title": "Antriebsspannung",
+                                      "description": "Antriebsspannung (2)",
+                                      "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                    },
+                                    "switching_capacity": {
+                                      "title": "Ausschaltleistung",
+                                      "description": "Ausschaltleistung",
+                                      "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                    },
+                                    "automatic_restart_capability": {
+                                      "title": "AWE-Fähigkeit",
+                                      "description": "AWE-Fähigkeit",
+                                      "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                    },
+                                    "ms_voltage": {
+                                      "title": "Bemessungsspannung",
+                                      "description":"Bemessungsspannung der Mittelspannung in kV",
+                                      "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                    },
+                                    "rated_current": {
+                                      "title": "Bemessungsstrom",
+                                      "description": "Bemessungsstrom in A",
+                                      "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                    },
+                                    "rated_short_circuit_current": {
+                                      "title": "Bemessungskurzschlussstrom",
+                                      "description": "Bemessungskurzschlussstrom beim Ausschalten",
+                                      "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                    },
+                                    "operating_voltage": {
+                                      "title": "Betriebsspannung",
+                                      "description":"Betriebsspannung in kV, (H_BETRIEBSSPANNUNG_MS)",
+                                      "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                    },
+                                    "manufacturer": {
+                                      "title": "Hersteller",
+                                      "description":"Hersteller des Gerätes",
+                                      "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                    },
+                                    "installation_method": {
+                                      "title": "Einbauart",
+                                      "description": "Einbauart",
+                                      "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                    },
+                                    "insulation_medium_switches": {
+                                      "title": "Isoliermedium",
+                                      "description": "Isoliermedium des Schalters",
+                                      "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                    },
+                                    "extinguishing_medium": {
+                                      "title": "Löschmedium",
+                                      "description": "Löschmedium",
+                                      "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                    },
+                                    "service_provider_name": {
+                                      "title": "Betreiber",
+                                      "description":"Der Name des Betreibers des Assets. Kann z.B. ein Stadtwerk sein.",
+                                      "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                    },
+                                    "owner_name": {
+                                      "title": "Eigentümer",
+                                      "description":"Der Name des Eigentümers des Assets. Kann z.B. ein Stadtwerk sein.",
+                                      "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                    }
+                                  },
+                                  "required": [
+                                    "automatic_restart_capability",
+                                    "commissioning_date",
+                                    "construction_month",
+                                    "construction_year",
+                                    "costcenter",
+                                    "drive_kind",
+                                    "drive_voltage",
+                                    "equipment_type",
+                                    "extinguishing_medium",
+                                    "id_sappm",
+                                    "installation_method",
+                                    "insulation_medium_switches",
+                                    "manufacturer",
+                                    "manufacturer_serial_number",
+                                    "ms_voltage",
+                                    "name",
+                                    "operating_voltage",
+                                    "owner_name",
+                                    "rated_current",
+                                    "rated_short_circuit_current",
+                                    "sap_tp_id",
+                                    "service_provider_name",
+                                    "status",
+                                    "switching_capacity",
+                                    "trip_control_voltage_1",
+                                    "trip_control_voltage_2"
+                                  ],
+                                  "groupOrder": [
+                                    {
+                                      "groupName": "IDs",
+                                      "order": [
+                                        "name",
+                                        "id_sappm",
+                                        "sap_tp_id"
+                                      ]
+                                    },
+                                    {
+                                      "groupName": "Elektrische Eigenschaften",
+                                      "order": [
+                                        "ms_voltage",
+                                        "operating_voltage",
+                                        "rated_current",
+                                        "rated_short_circuit_current",
+                                        "switching_capacity",
+                                        "trip_control_voltage_1",
+                                        "trip_control_voltage_2"
+                                      ]
+                                    },
+                                    {
+                                      "groupName": "Weitere Eigenschaften",
+                                      "order": [
+                                        "manufacturer",
+                                        "manufacturer_serial_number",
+                                        "automatic_restart_capability",
+                                        "installation_method",
+                                        "drive_kind",
+                                        "insulation_medium_switches",
+                                        "construction_type",
+                                        "construction_year"
+                                      ]
+                                    },
+                                    {
+                                      "groupName": "Nutzung",
+                                      "order": [
+                                        "owner_name",
+                                        "service_provider_name",
+                                        "user_name"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          },
+                        "voltage_transformer": {
+                          "title": "Spannungstransformer",
+                          "description":"Spannungstransformer",
+                          "anyOf": [
+                            {
+                              "type": "null"
+                            },
+                            {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "status": {
+                                    "title": "Status",
+                                    "description": "Status",
+                                    "type": "string"
+                                  },
+                                  "name": {
+                                    "title": "Name",
+                                    "description": "Name des Equipments",
+                                    "type": "string"
+                                  },
+                                  "id_sappm": {
+                                    "title": "SAP-PM Id",
+                                    "description":"ID aus dem SAP-PM-System, hier die Equipmentnummer.",
+                                    "type": "string",
+                                    "searchable": true
+                                  },
+                                  "equipment_type": {
+                                    "title": "Equipmenttype",
+                                    "description":"Equipmenttype",
+                                    "type": "integer"
+                                  },
+                                  "manufacturer_serial_number": {
+                                    "title": "Herstellerseriennummer",
+                                    "description":"Seriennummer des Herstellers",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "commissioning_date": {
+                                    "title": "Inbetriebnahmedatum",
+                                    "description":"Inbetriebnahmedatum, (INBDT)",
+                                    "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                  },
+                                  "construction_month": {
+                                    "title": "Baumonat",
+                                    "description":"Baumonat, z. B. 7 für Juli ",
+                                    "type": [
+                                        "integer",
+                                        "null"
+                                      ]
+                                  },
+                                  "construction_year": {
+                                    "title": "Baujahr",
+                                    "description":"Baujahr, z.B. 2020",
+                                    "type": [
+                                        "integer",
+                                        "null"
+                                      ]
+                                  },
+                                  "costcenter": {
+                                    "title": "Kostenstelle",
+                                    "description":"Kostenstelle",
+                                    "type": [
+                                        "integer",
+                                        "null"
+                                      ]
+                                  },
+                                  "sap_tp_id": {
+                                    "title": "überliegender technischer Platz",
+                                    "description": "überliegender technischer Platz",
+                                    "type": "string"
+                                  },
+                                  "label": {
+                                    "title": "Bezeichnung ",
+                                    "description":"Bezeichnung des Equipments",
+                                    "type": "string"
+                                  },
+                                  "service_provider_name": {
+                                    "title": "Betreiber",
+                                    "description":"Der Name des Betreibers des Assets. Kann z.B. ein Stadtwerk sein.",
+                                    "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                  },
+                                  "owner_name": {
+                                    "title": "Eigentümer",
+                                    "description":"Der Name des Eigentümers des Assets. Kann z.B. ein Stadtwerk sein.",
+                                    "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                  },
+                                  "user_name": {
+                                    "title": "Benutzer",
+                                    "description":"Der Name des Benutzers des Assets. Kann z.B. ein Stadtwerk sein.",
+                                    "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                  },
+                                  "operating_voltage": {
+                                    "title": "Betriebsspannung",
+                                    "description":"Betriebsspannung in kV",
+                                    "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                  },
+                                  "rated_power": {
+                                    "title": "Bemessungsleistung",
+                                    "description":"Bemessungsleistung in VA",
+                                    "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                  },
+                                  "ms_voltage": {
+                                    "title": "Bemessungsspannung",
+                                    "description":"Bemessungsspannung der Mittelspannung in kV",
+                                    "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                  },
+                                  "manufacturer": {
+                                    "title": "Hersteller",
+                                    "description":"Hersteller des Spannungstransformers",
+                                    "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                  },
+                                  "pole_number": {
+                                    "title": "Polzahl",
+                                    "description":"Polzahl",
+                                    "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                  },
+                                  "typ": {
+                                    "title": "Typenbezeichung ",
+                                    "description":"Typenbezeichung des Spannungstransformers",
+                                    "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                  },
+                                  "secondary_rated_voltage_w1": {
+                                    "title": "Sekundäre Nennspannunf W1",
+                                    "description":"Sekundäre Nennspannunf W1",
+                                    "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                  },
+                                  "switched_primary_rated_voltage": {
+                                    "title": "geschalt. Primär-Bemessungsspannung",
+                                    "description":"Angabe zur geschalteten primären Bemessungsspannung",
+                                    "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                  },
+                                  "w_en_rated_power": {
+                                    "title": "Bemessungsleistung von W_en",
+                                    "description":"Bemessungsleistung der Windungen W_en",
+                                    "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                  },
+                                  "w_en_classes": {
+                                    "title": "Windungsklasse ",
+                                    "description":"Windungsklasse, W_en Klasse",
+                                    "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                  },
+                                  "w_en_secondary_rated_voltage": {
+                                    "title": "Sekundäre Nennspannung",
+                                    "description":"Sekundäre Nennspannung von W_en",
+                                    "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                  },
+                                  "insulation_medium_transformer": {
+                                    "title": "Isulationsmedium ",
+                                    "description":"Isulationsmedium des Transformers",
+                                    "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                  },
+                                  "conductor": {
+                                    "title": "Leiter",
+                                    "description":"Leiter",
+                                    "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                  },
+                                  "w1_rated_power": {
+                                    "title": "Bemessungsleistung von w1 ",
+                                    "description":"Bemessungsleistung von w1 in VA",
+                                    "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                  },
+                                  "W1_calibrated": {
+                                    "title": "W1 geeicht",
+                                    "description":"Angabe ob W1 geeicht ist ",
+                                    "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                  }
+                                },
+                                "required": [
+                                  "W1_calibrated",
+                                  "commissioning_date",
+                                  "conductor",
+                                  "construction_month",
+                                  "construction_year",
+                                  "costcenter",
+                                  "equipment_type",
+                                  "id_sappm",
+                                  "insulation_medium_transformer",
+                                  "label",
+                                  "manufacturer",
+                                  "manufacturer_serial_number",
+                                  "ms_voltage",
+                                  "name",
+                                  "operating_voltage",
+                                  "owner_name",
+                                  "pole_number",
+                                  "rated_power",
+                                  "sap_tp_id",
+                                  "secondary_rated_voltage_w1",
+                                  "service_provider_name",
+                                  "status",
+                                  "switched_primary_rated_voltage",
+                                  "typ",
+                                  "user_name",
+                                  "w1_rated_power",
+                                  "w_en_classes",
+                                  "w_en_rated_power",
+                                  "w_en_secondary_rated_voltage"
+                                ],
+                                "groupOrder": [
+                                  {
+                                    "groupName": "IDs",
+                                    "order": [
+                                      "name",
+                                      "id_sappm",
+                                      "sap_tp_id"
+                                    ]
+                                  },
+                                  {
+                                    "groupName": "Elektrische Eigenschaften",
+                                    "order": [
+                                      "ms_voltage",
+                                      "rated_power",
+                                      "secondary_rated_voltage_w1",
+                                      "switched_primary_rated_voltage",
+                                      "w1_rated_power",
+                                      "w_en_classes",
+                                      "w_en_rated_power",
+                                      "w_en_secondary_rated_voltage",
+                                      "W1_calibrated"
+                                    ]
+                                  },
+                                  {
+                                    "groupName": "Weitere Eigenschaften",
+                                    "order": [
+                                      "manufacturer",
+                                      "manufacturer_serial_number",
+                                      "insulation_medium_transformer",
+                                      "construction_type",
+                                      "construction_year"
+                                    ]
+                                  },
+                                  {
+                                    "groupName": "Nutzung",
+                                    "order": [
+                                      "owner_name",
+                                      "service_provider_name",
+                                      "user_name"
+                                    ]
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        },
+                        "controlgear": {
+                          "title": "ST-Schutz-/Steuergerät",
+                          "description":"ST-Schutz-/Steuergerät",
+                           "anyOf": [
+                              {
+                                "type": "null"
+                              },
+                              {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "status": {
+                                      "title": "Status",
+                                      "description": "Status",
+                                      "type": "string"
+                                    },
+                                    "name": {
+                                      "title": "Name",
+                                      "description": "Name des Equipments",
+                                      "type": "string"
+                                    },
+                                    "id_sappm": {
+                                      "title": "SAP-PM Id",
+                                      "description":"ID aus dem SAP-PM-System, hier die Equipmentnummer.",
+                                      "type": "string",
+                                      "searchable": true
+                                    },
+                                    "equipment_type": {
+                                      "title": "Equipmenttype",
+                                      "description":"Equipmenttype",
+                                      "type": "integer"
+                                    },
+                                    "commissioning_date": {
+                                      "title": "Inbetriebnahmedatum",
+                                      "description":"Inbetriebnahmedatum",
+                                      "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                    },
+                                    "construction_month": {
+                                      "title": "Baumonat",
+                                      "description":"Baumonat, z. B. 7 für Juli",
+                                      "type": [
+                                        "integer",
+                                        "null"
+                                      ]
+                                    },
+                                    "construction_year": {
+                                      "title": "Baujahr",
+                                      "description":"Baujahr, z.B. 2020",
+                                      "type": [
+                                        "integer",
+                                        "null"
+                                      ]
+                                    },
+                                    "costcenter": {
+                                      "title": "Kostenstelle",
+                                      "description":"Kostenstelle",
+                                      "type": [
+                                        "integer",
+                                        "null"
+                                      ]
+                                    },
+                                    "sap_tp_id": {
+                                      "title": "überliegender technischer Platz",
+                                      "description": "überliegender technischer Platz",
+                                      "type": "string"
+                                    },
+                                    "label": {
+                                      "title": "Bezeichnung",
+                                      "description":"Bezeichnung des Equipments",
+                                      "type": "string"
+                                    },
+                                    "service_provider_name": {
+                                      "title": "Betreiber",
+                                      "description":"Der Name des Betreibers des Assets. Kann z.B. ein Stadtwerk sein.",
+                                      "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                    },
+                                    "owner_name": {
+                                      "title": "Eigentümer",
+                                      "description":"Der Name des Eigentümers des Assets. Kann z.B. ein Stadtwerk sein.",
+                                      "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                    },
+                                    "user_name": {
+                                      "title": "Benutzer",
+                                      "description":"Der Name des Benutzers des Assets. Kann z.B. ein Stadtwerk sein.",
+                                      "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                    },
+                                    "design": {
+                                      "title": "Ausführung",
+                                      "description":"Design / Ausführung des Equipments",
+                                      "type": [
+                                       "null",
+                                        "string"
+                                      ]
+                                    },
+                                    "rated_voltage": {
+                                      "title": "Bemessungsspannung",
+                                      "description":"Bemessungsspannung für die Mittelspannung, in kV",
+                                      "type": [
+                                        "string",
+                                        "null"
+                                      ]
+                                    },
+                                    "type": {
+                                      "title": "Typenbezeichnung",
+                                      "description":"Typenbezeichnung des Equipments",
+                                      "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                    },
+                                    "firmware_version": {
+                                      "title": "Firmwareversion",
+                                      "description":"Firmwareversion",
+                                      "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                    },
+                                    "enclosure_design": {
+                                      "title": "Gehäuseart",
+                                      "description":"Gehäuseart",
+                                      "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                    },
+                                    "manufacturer": {
+                                      "title": "Hersteller",
+                                      "description":"Hersteller des Gerätes",
+                                      "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                    },
+                                    "manufacturer_serial_number": {
+                                      "title": "Herstellerseriennummer",
+                                      "description":"Seriennummer des Herstellers",
+                                      "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                    },
+                                    "auxiliary_voltage": {
+                                      "title": "Hilfsspannung",
+                                      "description":"Hilfsspannung",
+                                      "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                    },
+                                    "protection_device_type": {
+                                      "title": "Schutz-/Geräteart",
+                                      "description":"Schutz-/Geräteart",
+                                      "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                    },
+                                    "control_function": {
+                                      "title": "Steuerfunktion",
+                                      "description":"Steuerfunktion",
+                                      "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                    },
+                                    "buffer_battery_type": {
+                                      "title": "Pufferbatterietyp",
+                                      "description":"Typ der Pufferbatterie'",
+                                       "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                    },
+                                    "battery_installation_date": {
+                                      "title": "Batterieeinbaudatum",
+                                      "description":"Batterieeinbaudatum",
+                                      "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                    },
+                                    "capacitor_installation_date": {
+                                      "title": "Kondensatoreinbaudatatum",
+                                      "description":"Kondensatoreinbaudatatum",
+                                       "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                    },
+                                    "analog_nominal_voltage": {
+                                      "title": "Nennspannung (Analog)",
+                                      "description":"Nennspannung (Analog)",
+                                      "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                    },
+                                    "type_suffix": {
+                                      "title": "Typzusatz",
+                                      "description":"Typzusatz",
+                                       "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                    }
+                                  },
+                                  "required": [
+                                    "analog_nominal_voltage",
+                                    "auxiliary_voltage",
+                                    "battery_installation_date",
+                                    "buffer_battery_type",
+                                    "capacitor_installation_date",
+                                    "commissioning_date",
+                                    "construction_month",
+                                    "construction_year",
+                                    "control_function",
+                                    "costcenter",
+                                    "design",
+                                    "enclosure_design",
+                                    "equipment_type",
+                                    "firmware_version",
+                                    "id_sappm",
+                                    "label",
+                                    "manufacturer",
+                                    "manufacturer_serial_number",
+                                    "name",
+                                    "owner_name",
+                                    "protection_device_type",
+                                    "rated_voltage",
+                                    "sap_tp_id",
+                                    "service_provider_name",
+                                    "status",
+                                    "type",
+                                    "type_suffix",
+                                    "user_name"
+                                  ],
+                                  "groupOrder": [
+                                    {
+                                      "groupName": "IDs",
+                                      "order": [
+                                        "name",
+                                        "id_sappm",
+                                        "sap_tp_id"
+                                      ]
+                                    },
+                                    {
+                                      "groupName": "Elektrische Eigenschaften",
+                                      "order": [
+                                        "rated_voltage",
+                                        "analog_nominal_voltage",
+                                        "auxiliary_voltage",
+                                        "battery_installation_date",
+                                        "buffer_battery_type",
+                                        "capacitor_installation_date"
+                                      ]
+                                    },
+                                    {
+                                      "groupName": "Weitere Eigenschaften",
+                                      "order": [
+                                        "manufacturer",
+                                        "manufacturer_serial_number",
+                                        "design",
+                                        "enclosure_design",
+                                        "firmware_version",
+                                        "control_function",
+                                        "construction_type",
+                                        "construction_year",
+                                        "capacitor_installation_date"
+                                      ]
+                                    },
+                                    {
+                                      "groupName": "Nutzung",
+                                      "order": [
+                                        "owner_name",
+                                        "service_provider_name",
+                                        "user_name"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          },
+                        "current_transformer": {
+                          "title": "MS-Stromwandler",
+                          "description":"MS-Stromwandler",
+                          "anyOf": [
+                            {
+                              "type": "null"
+                            },
+                            {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "status": {
+                                    "title": "Status",
+                                    "description":"Status",
+                                     "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                  },
+                                  "name": {
+                                    "title": "Name",
+                                    "description":"Name des Equipments",
+                                    "type": "string"
+                                  },
+                                  "id_sappm": {
+                                    "title": "SAP-PM Id",
+                                    "description":"ID aus dem SAP-PM-System, hier die Equipmentnummer.",
+                                    "type": "string",
+                                    "searchable": true
+                                  },
+                                  "equipment_type": {
+                                    "title": "Equipmenttype",
+                                    "description":"Equipmenttype",
+                                    "type": "integer"
+                                  },
+                                  "commissioning_date": {
+                                    "title": "Inbetriebnahmedatum",
+                                    "description":"Inbetriebnahmedatum, (INBDT)",
+                                    "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                  },
+                                  "construction_month": {
+                                    "title": "Baumonat",
+                                    "description":"Baumonat, z. B. 7 für Juli",
+                                    "type": [
+                                      "integer",
+                                      "null"
+                                      ]
+                                  },
+                                  "construction_year": {
+                                    "title": "Baujahr",
+                                    "description":"Baujahr, z.B. 2020",
+                                    "type": [
+                                        "integer",
+                                        "null"
+                                      ]
+                                  },
+                                  "costcenter": {
+                                    "title": "Kostenstelle",
+                                    "description":"Kostenstelle",
+                                    "type": [
+                                        "integer",
+                                        "null"
+                                      ]
+                                  },
+                                  "sap_tp_id": {
+                                    "title": "überliegender technischer Platz",
+                                    "description": "überliegender technischer Platz",
+                                    "type": "string"
+                                  },
+                                  "label": {
+                                    "title": "Bezeichnung",
+                                    "description":"Bezeichnung des Equipments",
+                                    "type": "string"
+                                  },
+                                  "service_provider_name": {
+                                    "title": "Betreiber",
+                                    "description":"Der Name des Betreibers des Assets. Kann z.B. ein Stadtwerk sein.",
+                                    "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                  },
+                                  "owner_name": {
+                                    "title": "Eigentümer",
+                                    "description":"Der Name des Eigentümers des Assets. Kann z.B. ein Stadtwerk sein.",
+                                    "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                  },
+                                  "user_name": {
+                                    "title": "Benutzer",
+                                    "description":"Der Name des Benutzers des Assets. Kann z.B. ein Stadtwerk sein.",
+                                    "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                  },
+                                  "manufacturer": {
+                                    "title": "Hersteller",
+                                    "description":"Hersteller des MS-Stromwandlers",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "manufacturer_serial_number": {
+                                    "title": "Herstellerseriennummer",
+                                    "description":"Seriennummer des Herstellers",
+                                    "type": [
+                                      "string",
+                                      "null"
+                                      ]
+                                  },
+                                  "connection_type": {
+                                    "title": "Anschlussart",
+                                    "description":"Anschlussart",
+                                    "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                  },
+                                  "connection_material": {
+                                    "title": "Anschlussmaterial",
+                                    "description":"Anschlussmaterial",
+                                    "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                  },
+                                  "model": {
+                                    "title": "Bauart",
+                                    "description":"Bauart",
+                                    "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                  },
+                                  "ms_voltage": {
+                                    "title": "Bemessungsspannung",
+                                    "description":"Bemessungsspannung der Mittelspannung in kV",
+                                    "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                  },
+                                  "ms_operating_voltage": {
+                                    "title": "MS Betriebsspannung",
+                                    "description":"Betriebsspannung der MS Ebene in kV",
+                                    "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                  },
+                                  "insulation_medium_transformer": {
+                                    "title": "Isulationsmedium ",
+                                    "description":"Isulationsmedium des Transformers",
+                                    "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                  },
+                                  "conductor": {
+                                    "title": "Leiter",
+                                    "description":"Leiter",
+                                    "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                  },
+                                  "installation_direction_K_P1": {
+                                    "title": "tbd and checked ",
+                                    "description":"tbd and checked ",
+                                    "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                  },
+                                  "thermal_rated_short_circuit_duration": {
+                                    "title": "Thermische Bemessungskurzschlusszeit",
+                                    "description":"Thermische Bemessungskurzschlusszeit",
+                                    "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                  },
+                                  "K1_rated_voltage": {
+                                    "title": "Bemessungsleistung von K1",
+                                    "description":"Bemessungsleistung von K1 in VA",
+                                    "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                  },
+                                  "K1_class": {
+                                    "title": "K1 Klasse",
+                                    "description":"K1 Klassebezeichnung",
+                                    "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                  },
+                                  "K1_primary_rated_current": {
+                                    "title": "Primärer Bemessungsstrom",
+                                    "description":"primärer Bemessungsstrom von K1 ",
+                                    "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                  },
+                                  "K1_secondary_rated_current": {
+                                    "title": "Sekundärer Bemessungsstrom ",
+                                    "description":"Sekundärer Bemessungsstrom von K1",
+                                    "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                  },
+                                  "switched_primary_rated_current": {
+                                    "title": "geschalt.Primär-Bemessungsstrom",
+                                    "description":"geschalteter primärer Bemessungsstrom",
+                                    "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                  }
+                                },
+                                "required": [
+                                  "K1_class",
+                                  "K1_primary_rated_current",
+                                  "K1_rated_voltage",
+                                  "K1_secondary_rated_current",
+                                  "commissioning_date",
+                                  "conductor",
+                                  "connection_material",
+                                  "connection_type",
+                                  "construction_month",
+                                  "construction_year",
+                                  "costcenter",
+                                  "equipment_type",
+                                  "id_sappm",
+                                  "installation_direction_K_P1",
+                                  "insulation_medium_transformer",
+                                  "label",
+                                  "manufacturer",
+                                  "manufacturer_serial_number",
+                                  "model",
+                                  "ms_operating_voltage",
+                                  "ms_voltage",
+                                  "name",
+                                  "owner_name",
+                                  "sap_tp_id",
+                                  "service_provider_name",
+                                  "status",
+                                  "switched_primary_rated_current",
+                                  "thermal_rated_short_circuit_duration",
+                                  "user_name"
+                                ],
+                                "groupOrder": [
+                                  {
+                                    "groupName": "IDs",
+                                    "order": [
+                                      "name",
+                                      "id_sappm",
+                                      "sap_tp_id"
+                                    ]
+                                  },
+                                  {
+                                    "groupName": "Elektrische Eigenschaften",
+                                    "order": [
+                                      "ms_operating_voltage",
+                                      "ms_voltage",
+                                      "switched_primary_rated_current",
+                                      "thermal_rated_short_circuit_duration",
+                                      "K1_class",
+                                      "K1_primary_rated_current",
+                                      "K1_rated_voltage",
+                                      "K1_secondary_rated_current"
+                                    ]
+                                  },
+                                  {
+                                    "groupName": "Weitere Eigenschaften",
+                                    "order": [
+                                      "manufacturer",
+                                      "manufacturer_serial_number",
+                                      "model",
+                                      "commissioning_date",
+                                      "conductor",
+                                      "insulation_medium_transformer",
+                                      "installation_direction_K_P1",
+                                      "connection_material",
+                                      "connection_type",
+                                      "construction_year"
+                                    ]
+                                  },
+                                  {
+                                    "groupName": "Nutzung",
+                                    "order": [
+                                      "owner_name",
+                                      "service_provider_name",
+                                      "user_name"
+                                    ]
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        },
+                        "cable_section": {
+                          "title": "MS-Kabelabschnitt",
+                          "description":"MS-Kabelabschnitt",
+                          "anyOf": [
+                            {
+                              "type": "null"
+                            },
+                            {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "status": {
+                                    "title": "Status",
+                                    "description":"Status",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "name": {
+                                    "title": "Name",
+                                    "description":"Name des Equipments",
+                                    "type": "string"
+                                  },
+                                  "id_sappm": {
+                                    "title": "SAP-PM Id",
+                                    "description":"ID aus dem SAP-PM-System, hier die Equipmentnummer.",
+                                    "type": "string",
+                                    "searchable": true
+                                  },
+                                  "equipment_type": {
+                                    "title": "Equipmenttype",
+                                    "description":"Equipmenttype",
+                                    "type": "integer"
+                                  },
+                                  "commissioning_date": {
+                                    "title": "Inbetriebnahmedatum",
+                                    "description":"Inbetriebnahmedatum, (INBDT)",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "construction_month": {
+                                    "title": "Baumonat ",
+                                    "description":"Baumonat, z. B. 7 für Juli",
+                                    "type": [
+                                      "integer",
+                                      "null"
+                                    ]
+                                  },
+                                  "construction_year": {
+                                    "title": "Baujahr",
+                                    "description": "Baujahr, z.B. 2020",
+                                    "type": [
+                                      "integer",
+                                      "null"
+                                    ]
+                                  },
+                                  "costcenter": {
+                                    "title": "Kostenstelle",
+                                    "description":"Kostenstelle",
+                                    "type": [
+                                      "null",
+                                      "integer"
+                                    ]
+                                  },
+                                  "sap_tp_id": {
+                                    "title": "überliegender technischer Platz",
+                                    "description": "überliegender technischer Platz",
+                                    "type": "string"
+                                  },
+                                  "label": {
+                                    "title": "Bezeichnung",
+                                    "description":"Bezeichnung des Equipments",
+                                    "type": [
+                                            "null",
+                                            "string"
+                                          ]
+                                  },
+                                  "service_provider_name": {
+                                    "title": "Betreiber",
+                                    "description":"Der Name des Betreibers des Assets. Kann z.B. ein Stadtwerk sein.",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "owner_name": {
+                                    "title": "Eigentümer",
+                                    "description":"Der Name des Eigentümers des Assets. Kann z.B. ein Stadtwerk sein.",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "user_name": {
+                                    "title": "Benutzer",
+                                    "description":"Der Name des Benutzers des Assets. Kann z.B. ein Stadtwerk sein.",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "diameter_conductor": {
+                                    "title": "Querschnitt",
+                                    "description":"Querschnitt des Leiters (mm^2)",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "number_conductor": {
+                                    "title": "Leiteranzahl",
+                                    "description":"Anzahl Leiter pro Phase",
+                                    "type": [
+                                      "null",
+                                      "integer"
+                                    ]
+                                  },
+                                  "construction_type": {
+                                    "title": "Bauart",
+                                    "description":"Bauart des Equipments",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "ms_voltage": {
+                                    "title": "Bemessungsspannung",
+                                    "description":"Bemessungsspannung der Mittelspannung in kV",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "lenght": {
+                                    "title": "Länge",
+                                    "description":"Länge des Kabelabschnitts in Meter (m)",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "din_cable_type": {
+                                    "title": "Normbezeichnung",
+                                    "description":"Normbezeichnung des Kabeltypes",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "conductor_type": {
+                                    "title": "Leiterart",
+                                    "description":"Leiterart",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "material": {
+                                    "title": "Material",
+                                    "description":"Material",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "diameter_shield": {
+                                    "title": "Querschnitt Abschirmung ",
+                                    "description":"Querschnitt der Abschirmung in (mm^2)",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "manufacturer": {
+                                    "title": "Hersteller",
+                                    "description":"Hersteller des Kabelabschnitts",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  }
+                                },
+                                "required": [
+                                  "commissioning_date",
+                                  "conductor_type",
+                                  "construction_month",
+                                  "construction_type",
+                                  "construction_year",
+                                  "costcenter",
+                                  "diameter_conductor",
+                                  "diameter_shield",
+                                  "din_cable_type",
+                                  "equipment_type",
+                                  "id_sappm",
+                                  "label",
+                                  "lenght",
+                                  "manufacturer",
+                                  "material",
+                                  "ms_voltage",
+                                  "name",
+                                  "number_conductor",
+                                  "owner_name",
+                                  "sap_tp_id",
+                                  "service_provider_name",
+                                  "status",
+                                  "user_name"
+                                ],
+                                "groupOrder": [
+                                  {
+                                    "groupName": "IDs",
+                                    "order": [
+                                      "name",
+                                      "id_sappm",
+                                      "sap_tp_id"
+                                    ]
+                                  },
+                                  {
+                                    "groupName": "Kabel Eigenschaften",
+                                    "order": [
+                                      "diameter_conductor",
+                                      "number_conductor",
+                                      "lenght",
+                                      "din_cable_type",
+                                      "material",
+                                      "diameter_shield"
+                                    ]
+                                  },
+                                  {
+                                    "groupName": "Weitere Eigenschaften",
+                                    "order": [
+                                      "manufacturer",
+                                      "construction_type",
+                                      "construction_year",
+                                      "commissioning_date"
+                                    ]
+                                  },
+                                  {
+                                    "groupName": "Nutzung",
+                                    "order": [
+                                      "owner_name",
+                                      "service_provider_name",
+                                      "user_name"
+                                    ]
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        },
+                        "sealing_end": {
+                          "title": "MS-Endverschluss",
+                          "description":"MS-Endverschluss",
+                          "anyOf": [
+                            {
+                              "type": "null"
+                            },
+                            {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "status": {
+                                    "title": "Status",
+                                    "description":"Status",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "name": {
+                                    "title": "Name",
+                                    "description":"Name des Equipments",
+                                    "type": "string"
+                                  },
+                                  "id_sappm": {
+                                    "title": "SAP-PM Id",
+                                    "description":"ID aus dem SAP-PM-System, hier die Equipmentnummer.",
+                                    "type": "string",
+                                    "searchable": true
+                                  },
+                                  "equipment_type": {
+                                    "title": "Equipmenttype",
+                                    "description":"Equipmenttype",
+                                    "type": "integer"
+                                  },
+                                  "commissioning_date": {
+                                    "title": "Inbetriebnahmedatum",
+                                    "description":"Inbetriebnahmedatum, (INBDT)",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "construction_month": {
+                                    "title": "Baumonat",
+                                    "description":"Baumonat, z. B. 7 für Juli",
+                                    "type": [
+                                      "integer",
+                                      "null"
+                                    ]
+                                  },
+                                  "construction_year": {
+                                    "title": "Baujahr",
+                                    "description":"Baujahr, z.B. 2020",
+                                    "type": [
+                                      "integer",
+                                      "null"
+                                    ]
+                                  },
+                                  "costcenter": {
+                                    "title": "Kostenstelle",
+                                    "description":"Kostenstelle",
+                                    "type": [
+                                      "null",
+                                      "integer"
+                                    ]
+                                  },
+                                  "sap_tp_id": {
+                                    "title": "überliegender technischer Platz",
+                                    "description": "überliegender technischer Platz",
+                                    "type": "string"
+                                  },
+                                  "label": {
+                                    "title": "Bezeichnung",
+                                    "description":"Bezeichnung des Equipments",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "service_provider_name": {
+                                    "title": "Betreiber",
+                                    "description":"Der Name des Betreibers des Assets. Kann z.B. ein Stadtwerk sein.",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "owner_name": {
+                                    "title": "Eigentümer",
+                                    "description":"Der Name des Eigentümers des Assets. Kann z.B. ein Stadtwerk sein.",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "user_name": {
+                                    "title": "Benutzer",
+                                    "description":"Der Name des Benutzers des Assets. Kann z.B. ein Stadtwerk sein.",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "design": {
+                                    "title": "Ausführung",
+                                    "description":"Design / Ausführung des Equipments",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "construction_type": {
+                                    "title": "Bauart",
+                                    "description":"Bauart des Equipments",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "ms_voltage": {
+                                    "title": "Bemessungsspannung",
+                                    "description":"Bemessungsspannung der Mittelspannung in kV",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "manufacturer": {
+                                    "title": "Hersteller",
+                                    "description":"Hersteller des Equipments",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "type": {
+                                    "title": "Typenbezeichnung",
+                                    "description":"Typenbezeichnung des Equipments",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  }
+                                },
+                                "required": [
+                                  "commissioning_date",
+                                  "construction_month",
+                                  "construction_type",
+                                  "construction_year",
+                                  "costcenter",
+                                  "design",
+                                  "equipment_type",
+                                  "id_sappm",
+                                  "label",
+                                  "manufacturer",
+                                  "ms_voltage",
+                                  "name",
+                                  "owner_name",
+                                  "sap_tp_id",
+                                  "service_provider_name",
+                                  "status",
+                                  "type",
+                                  "user_name"
+                                ],
+                                "groupOrder": [
+                                  {
+                                    "groupName": "IDs",
+                                    "order": [
+                                      "name",
+                                      "id_sappm"
+                                    ]
+                                  },
+                                  {
+                                    "groupName": "Eigenschaften",
+                                    "order": [
+                                      "ms_voltage",
+                                      "manufacturer",
+                                      "design",
+                                      "commissioning_date",
+                                      "construction_type",
+                                      "construction_year",
+                                      "construction_month"
+                                    ]
+                                  },
+                                  {
+                                    "groupName": "Nutzung",
+                                    "order": [
+                                      "owner_name",
+                                      "service_provider_name",
+                                      "user_name"
+                                    ]
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        },
+                        "voltage_indicator": {
+                          "title": "MS-Spannungsanzeiger",
+                          "description":"MS-Spannungsanzeiger",
+                          "anyOf": [
+                            {
+                              "type": "null"
+                            },
+                            {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "status": {
+                                    "title": "Status",
+                                    "description":"Status",
+                                    "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                  },
+                                  "name": {
+                                    "title": "Name",
+                                    "description":"Name des Equipments",
+                                    "type": "string"
+                                  },
+                                  "id_sappm": {
+                                    "title": "SAP-PM Id",
+                                    "description":"ID aus dem SAP-PM-System, hier die Equipmentnummer.",
+                                    "type": "string",
+                                    "searchable": true
+                                  },
+                                  "equipment_type": {
+                                    "title": "Equipmenttype",
+                                    "description":"Equipmenttype",
+                                    "type": "integer"
+                                  },
+                                  "commissioning_date": {
+                                    "title": "Inbetriebnahmedatum",
+                                    "description":"Inbetriebnahmedatum, (INBDT)",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "construction_month": {
+                                    "title": "Baumonat",
+                                    "description":" Baumonat, z. B. 7 für Juli",
+                                    "type": [
+                                      "integer",
+                                      "null"
+                                    ]
+                                  },
+                                  "construction_year": {
+                                    "title": "Baujahr",
+                                    "description":"Baujahr, z.B. 2020",
+                                    "type": [
+                                      "integer",
+                                      "null"
+                                    ]
+                                  },
+                                  "costcenter": {
+                                    "title": "Kostenstelle",
+                                    "description":"Kostenstelle",
+                                    "type": [
+                                      "integer",
+                                      "null"
+                                    ]
+                                  },
+                                  "sap_tp_id": {
+                                    "title": "überliegender technischer Platz",
+                                    "description": "überliegender technischer Platz",
+                                    "type": "string"
+                                  },
+                                  "label": {
+                                    "title": "Bezeichnung",
+                                    "description":"Bezeichnung des Equipments",
+                                    "type": "string"
+                                  },
+                                  "service_provider_name": {
+                                    "title": "Betreiber",
+                                    "description":"Der Name des Betreibers des Assets. Kann z.B. ein Stadtwerk sein.",
+                                    "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                  },
+                                  "owner_name": {
+                                    "title": "Eigentümer",
+                                    "description":"Der Name des Eigentümers des Assets. Kann z.B. ein Stadtwerk sein.",
+                                    "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                  },
+                                  "user_name": {
+                                    "title": "Benutzer",
+                                    "description":"Der Name des Benutzers des Assets. Kann z.B. ein Stadtwerk sein.",
+                                    "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                  },
+                                  "manufacturer": {
+                                    "title": "Hersteller",
+                                    "description":"Hersteller des Equipments",
+                                    "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                  },
+                                  "construction_type": {
+                                    "title": "Bauart",
+                                    "description":"Bauart des Equipments",
+                                    "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                  }
+                                },
+                                "required": [
+                                  "commissioning_date",
+                                  "construction_month",
+                                  "construction_type",
+                                  "construction_year",
+                                  "costcenter",
+                                  "equipment_type",
+                                  "id_sappm",
+                                  "label",
+                                  "manufacturer",
+                                  "name",
+                                  "owner_name",
+                                  "sap_tp_id",
+                                  "service_provider_name",
+                                  "status",
+                                  "user_name"
+                                ],
+                                "groupOrder": [
+                                  {
+                                    "groupName": "IDs",
+                                    "order": [
+                                      "name",
+                                      "id_sappm",
+                                      "sap_tp_id"
+                                    ]
+                                  },
+                                  {
+                                    "groupName": "Eigenschaften",
+                                    "order": [
+                                      "manufacturer",
+                                      "commissioning_date",
+                                      "construction_type",
+                                      "construction_year"
+                                    ]
+                                  },
+                                  {
+                                    "groupName": "Nutzung",
+                                    "order": [
+                                      "owner_name",
+                                      "service_provider_name",
+                                      "user_name"
+                                    ]
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        },
+                        "short_circuit_indicator": {
+                          "title": "MS-Kurzschlussanzeiger",
+                          "description":"MS-Kurzschlussanzeiger",
+                          "anyOf": [
+                            {
+                              "type": "null"
+                            },
+                            {
+                              "type": "array",
+                              "items": {
+                                "type": "object",
+                                "properties": {
+                                  "status": {
+                                    "title": "Status",
+                                    "description":"Status",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "name": {
+                                    "title": "Name",
+                                    "description":"Name des Equipments",
+                                    "type": "string"
+                                  },
+                                  "id_sappm": {
+                                    "title": "SAP-PM Id",
+                                    "description":"ID aus dem SAP-PM-System, hier die Equipmentnummer.",
+                                    "type": "string",
+                                    "searchable": true
+                                  },
+                                  "equipment_type": {
+                                    "title": "Equipmenttype",
+                                    "description":"Equipmenttype",
+                                    "type": "integer"
+                                  },
+                                  "commissioning_date": {
+                                    "title": "Inbetriebnahmedatum",
+                                    "description":"Inbetriebnahmedatum, (INBDT)",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "construction_month": {
+                                    "title": "Baumonat",
+                                    "description":"Baumonat, z. B. 7 für Juli",
+                                    "type": [
+                                      "integer",
+                                      "null"
+                                    ]
+                                  },
+                                  "construction_year": {
+                                    "title": "Baujahr",
+                                    "description": "Baujahr, z.B. 2020",
+                                    "type": [
+                                      "integer",
+                                      "null"
+                                    ]
+                                  },
+                                  "costcenter": {
+                                    "title": "Kostenstelle",
+                                    "description":"Kostenstelle",
+                                    "type": [
+                                      "null",
+                                      "integer"
+                                    ]
+                                  },
+                                  "sap_tp_id": {
+                                    "title": "überliegender technischer Platz",
+                                    "description": "überliegender technischer Platz",
+                                    "type": "string"
+                                  },
+                                  "label": {
+                                    "title": "Bezeichnung",
+                                    "description":"Bezeichnung des Equipments",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "service_provider_name": {
+                                    "title": "Betreiber",
+                                    "description":"Der Name des Betreibers des Assets. Kann z.B. ein Stadtwerk sein.",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "owner_name": {
+                                    "title": "Eigentümer",
+                                    "description":"Der Name des Eigentümers des Assets. Kann z.B. ein Stadtwerk sein.",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "user_name": {
+                                    "title": "Benutzer",
+                                    "description":"Der Name des Benutzers des Assets. Kann z.B. ein Stadtwerk sein.",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "manufacturer": {
+                                    "title": "Hersteller",
+                                    "description":"Hersteller des Equipments",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "indicator_operating_current": {
+                                    "title": "Ansprechstrom",
+                                    "description":"Kurzschlussanzeiger (KSA) Ansprechstrom [A]",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "construction_type": {
+                                    "title": "Bauart",
+                                    "description":"Bauart des Equipments",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "indictor_release": {
+                                    "title": "Auslöser",
+                                    "description":"Auslöser / Rücksteller",
+                                    "type": [
+                                      "null",
+                                      "string"
+                                    ]
+                                  },
+                                  "voltage": {
+                                    "title": "Spannungswert",
+                                    "description":"Spannungswert des Kurzschlussanzeiger",
+                                    "type": [
+                                        "null",
+                                        "string"
+                                      ]
+                                  }
+                                },
+                                "required": [
+                                  "commissioning_date",
+                                  "construction_month",
+                                  "construction_type",
+                                  "construction_year",
+                                  "costcenter",
+                                  "equipment_type",
+                                  "id_sappm",
+                                  "indicator_operating_current",
+                                  "indictor_release",
+                                  "label",
+                                  "manufacturer",
+                                  "name",
+                                  "owner_name",
+                                  "sap_tp_id",
+                                  "service_provider_name",
+                                  "status",
+                                  "user_name",
+                                  "voltage"
+                                ],
+                                "groupOrder": [
+                                  {
+                                    "groupName": "IDs",
+                                    "order": [
+                                      "name",
+                                      "id_sappm",
+                                      "sap_tp_id"
+                                    ]
+                                  },
+                                  {
+                                    "groupName": "Elektrische Eigenschaften",
+                                    "order": [
+                                      "voltage",
+                                      "indicator_operating_current"
+                                    ]
+                                  },
+                                  {
+                                    "groupName": "Weitere Eigenschaften",
+                                    "order": [
+                                      "manufacturer",
+                                      "commissioning_date",
+                                      "construction_type",
+                                      "construction_year",
+                                      "indictor_release"
+                                    ]
+                                  },
+                                  {
+                                    "groupName": "Nutzung",
+                                    "order": [
+                                      "owner_name",
+                                      "service_provider_name",
+                                      "user_name"
+                                    ]
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "required": [
+                        "cable_section",
+                        "circuit_breaker",
+                        "construction_type",
+                        "construction_year",
+                        "contract_type",
+                        "controlgear",
+                        "costcenter",
+                        "current_transformer",
+                        "field_label",
+                        "field_number",
+                        "fuse_type",
+                        "id_sappm",
+                        "insulation_kind",
+                        "manufacturer",
+                        "manufacturer_fuse",
+                        "manufacturer_serial_number",
+                        "meter",
+                        "mv_operating_voltage",
+                        "mv_voltage",
+                        "name",
+                        "owner_name",
+                        "rated_current_fuse_links",
+                        "rated_normal_current",
+                        "rated_short-time_current",
+                        "rated_short_circuit_duration",
+                        "rated_short_time_dynamic_current",
+                        "rated_short_time_thermal_current",
+                        "sealing_end",
+                        "service_provider_name",
+                        "short_circuit_indicator",
+                        "status",
+                        "surge_arresters",
+                        "switch_disconnector",
+                        "type",
+                        "usage_kind",
+                        "user_name",
+                        "voltage_indicator",
+                        "voltage_transformer"
+                      ],
+                      "groupOrder": [
+                        {
+                          "groupName": "IDs",
+                          "order": [
+                            "name",
+                            "id_sappm"
+                          ]
+                        },
+                        {
+                          "groupName": "Elektrische Eigenschaften",
+                          "order": [
+                            "rated_normal_current",
+                            "mv_operating_voltage"
+                          ]
+                        },
+                        {
+                          "groupName": "Weitere Eigenschaften",
+                          "order": [
+                            "manufacturer",
+                            "manufacturer_fuse",
+                            "manufacturer_serial_number",
+                            "usage_kind",
+                            "field_label",
+                            "insulation_kind",
+                            "meter",
+                            "construction_type",
+                            "construction_year"
+                          ]
+                        },
+                        {
+                          "groupName": "Equipment des MS-Schaltfeldes",
+                          "order": [
+                            "cable_section",
+                            "circuit_breaker",
+                            "controlgear",
+                            "current_transformer",
+                            "sealing_end",
+                            "short_circuit_indicator",
+                            "surge_arresters",
+                            "switch_disconnector",
+                            "voltage_transformer",
+                            "voltage_indicator"
+                          ]
+                        },
+                        {
+                          "groupName": "Nutzung",
+                          "order": [
+                            "owner_name",
+                            "service_provider_name",
+                            "user_name"
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            "required": [
+              "configuration",
+              "construction_kind",
+              "construction_year",
+              "cross_section",
+              "design",
+              "id_sappm",
+              "interfering_arc_absorber",
+              "manufacturer",
+              "manufacturer_serial_number",
+              "material",
+              "mv_operating_voltage",
+              "mv_voltage",
+              "name",
+              "neutral_point_treatment",
+              "number_switch_panels",
+              "rated_normal_current",
+              "rated_short_circuit_duration",
+              "rated_short_circuit_make_current",
+              "rated_short_time_dynamic_current",
+              "rated_short_time_thermal_current",
+              "service_provider_name",
+              "short_circuit_current_grid",
+              "switch_fields",
+              "user_name"
+            ],
+            "groupOrder": [
+              {
+                "groupName": "IDs",
+                 "order": [
+                   "name",
+                   "id_sappm"
+                 ]
+               },
+              {
+                "groupName": "Elektrische Eigenschaften",
+                "order": [
+                  "rated_normal_current",
+                  "mv_voltage",
+                  "mv_operating_voltage",
+                  "rated_short_circuit_duration",
+                  "rated_short_circuit_make_current",
+                  "rated_short_time_dynamic_current",
+                  "rated_short_time_thermal_current"
+                ]
+              },
+              {
+                "groupName": "Weitere Eigenschaften",
+                "order": [
+                  "neutral_point_treatment",
+                  "interfering_arc_absorber",
+                  "number_switch_panels",
+                  "manufacturer",
+                  "manufacturer_serial_number",
+                  "construction_year"
+                ]
+              },
+              {
+                "groupName": "Equipments der MS-Schaltanlage",
+                "order": [
+                  "switch_fields"
+                ]
+              },
+              {
+                "groupName": "Nutzung",
+                "order": [
+                  "owner_name",
+                  "service_provider_name",
+                  "user_name"
+                  ]
+                }
+            ]
+          }
+        }
+      ]
+    },
+    "id_nemo": {
+      "title": "Nemo Id",
+      "description":"Nemo Id",
+      "type": "string"
+    },
+    "_key": {
+          "title": "_key",
+          "description":"Interner Datenbankschlüssel",
+          "type": "string"
+    }
+  },
+  "required": [
+    "_key",
+    "address",
+    "asset_type",
+    "construction_type",
+    "construction_year",
+    "contract_type",
+    "downstream_grid_capacity",
+    "function",
+    "id_gis",
+    "id_nemo",
+    "id_sappm",
+    "manufacturer",
+    "manufacturer_serial_number",
+    "manufacturer_type",
+    "name",
+    "operating_voltage",
+    "owner_name",
+    "plc_headend",
+    "rated_short_time_current",
+    "rated_voltage",
+    "remote_transmission_method",
+    "service_provider_name",
+    "switch_panels",
+    "transformer",
+    "user_name"
+  ],
+  "groupOrder": [
+     {
+      "groupName": "IDs",
+      "order": [
+        "name",
+        "id_nemo",
+        "id_gis",
+        "id_sappm"
+      ]
+      },
+    {
+      "groupName": "Equipments der Station",
+      "order": [
+	    "transformer",
+        "switch_panels"
+      ]
+    },
+    {
+      "groupName": "Weitere Eigenschaften",
+      "order": [
+        "manufacturer",
+        "manufacturer_type",
+        "manufacturer_serial_number",
+        "construction_type",
+	    "construction_year"
+      ]
+    },
+    {
+      "groupName": "Elektrische Eigenschaften",
+      "order": [
+	    "downstream_grid_capacity"
+      ]
+    },
+    {
+      "groupName": "Nutzung",
+      "order": [
+        "owner_name",
+        "service_provider_name",
+        "user_name",
+        "function",
+	    "contract_type"
+      ]
+    }, {
+      "groupName": "Sekundärtechnik",
+      "order": [
+        "remote_transmission_method"
+      ]
+    },{
+      "groupName": "Adresse",
+      "order": [
+        "street_name",
+        "street_number",
+        "postal_code",
+        "sublocality",
+        "locality"
+      ]
+    }
+  ]
+}
